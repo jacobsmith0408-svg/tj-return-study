@@ -49,3 +49,11 @@ How does fastball velocity and pitch usage change in the first 300 pitches follo
 - Analyze movement changes
 - Add performance metrics
 - Examine longer-term windows (Pre and Post)
+
+## How to run
+pip install -r requirements.txt
+python scripts/tj_analysis.py
+
+Outputs saved to /outputs
+
+Cohort CSV located in /data
