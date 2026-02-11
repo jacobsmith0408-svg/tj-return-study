@@ -29,7 +29,7 @@ How does fastball velocity and pitch usage change in the first 300 pitches follo
 ![Velocity Plot](outputs/ff_velo_pre_vs_post_by_role.png)
 
 **Pitch Mix** 
-- Slider usage decreased by ~ -7.1 percentage points
+- Slider usage decreased by ~ 7.1 percentage points
 - Curveball usage increased by ~ 2.8 percentage points
 - No strong subgroup conclusions drawn due to sample size
 

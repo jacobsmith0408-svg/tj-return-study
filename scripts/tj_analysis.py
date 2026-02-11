@@ -70,7 +70,6 @@ cohort["return_date"] = pd.to_datetime(cohort["return_date"])
 
 print(cohort.dtypes)
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(BASE_DIR, "outputs")
 
@@ -173,21 +172,17 @@ for _, row in cohort.iterrows():
 
 results_df = pd.DataFrame(results)
 
-# round velo columns (presentation only)
 for col in ["pre_ff_velo", "post_ff_velo", "velo_change"]:
     if col in results_df.columns:
         results_df[col] = results_df[col].astype(float).round(2)
 
-# fill pitch mix NaNs with 0 (usage share)
 mix_cols = [c for c in results_df.columns if c.endswith("_pre_pct") or c.endswith("_post_pct") or c.endswith("_delta")]
 if mix_cols:
     results_df[mix_cols] = results_df[mix_cols].fillna(0)
 
-# create analysis_df ONCE
 analysis_df = results_df[results_df["status"] == "OK"].copy()
 print("Number of pitchers in analysis:", len(analysis_df))
 
-# create role_group ONCE (and keep it)
 analysis_df["role_group"] = (
     analysis_df["role_return"]
     .astype(str)
